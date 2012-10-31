@@ -28,8 +28,42 @@
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		
 		<?php
+		include 'config.php';
+		// A malicious user would be hard-pressed to compromise
+		// a user's password with crypt because crypt is a one-way
+		// function, and the malicious user would also need to guess
+		// the salt, which can be set on an individual-user basis.
+		$salt = "kr";
+
+		// This saved_password would be saved in the database.
+		//$saved_password = crypt('mypassword', $salt); 
+		//echo "<p>The saved password is: ".$saved_password."</p>";
+
+		$username = $_POST["username"];
+		$entered_password = $_POST["password"];
+		
+		$currentUser = mysql_query(
+			"SELECT * FROM presidentialLogin
+			WHERE username = '$username'"
+		);
+		$row = mysql_fetch_array($currentUser);
+		
+		echo crypt($entered_password, $salt) . " vs " . $row['password'];
+	
+		if(crypt($entered_password, $salt) == $row['password']); {
+		   echo "<p>Thank you, <strong>".$_POST["username"]."</strong>. You are now logged in.</p>";
+		   ?> <script type="text/javascript">
+				// Save the username in local storage. That way you
+				// can access it later even if the user closes the app.
+				localStorage.setItem('username', '<?=$_POST["username"]?>');
+			</script> <?
+		} else {
+			echo "<p>There seems to have been an error.</p>";
+		}
+		?>
+		<!--<?php
+		
 		// This is a hack. You should connect to a database here.
 		if ($_POST["username"] == "oi") {
 			?>
@@ -42,10 +76,10 @@
 			echo "<p>Thank you, <strong>".$_POST["username"]."</strong>. You are now logged in.</p>";
 		} else {
 			echo "<p>There seems to have been an error.</p>";
-		}
+		} 
 			
 
-		?>
+		?>-->
 	</div><!-- /content -->
 
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">

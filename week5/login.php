@@ -21,7 +21,7 @@
 
 <div data-role="page">
 
-	<div data-role="header">
+	<div data-role="header" data-theme="b">
 	<h1>Log in</h1>
 	<a href="#" data-icon="check" id="logout" class="ui-btn-right">Logout</a>
 
@@ -29,7 +29,13 @@
 
 	<div data-role="content">
 	
-	<p>The form should go here</p>
+	<form action="enter.php" method="post">
+	<label for="foo">Username:</label>
+	<input type="text" name="username" id="foo">
+	<label for="bar">Password:</label>
+	<input type="password" name="password" id="bar">
+	<input type="submit" value="Login">
+	</form>
 		<div data-role="fieldcontain">
 			
 		</div>	
@@ -45,8 +51,8 @@
 		<ul>
 			<li><a href="index.php" id="home" data-icon="custom">Home</a></li>
 			<li><a href="login.php" id="key" data-icon="custom" class="ui-btn-active">Login</a></li>
-			<li><a href="filter.php" id="beer" data-icon="custom">Filter</a></li>
-			<li><a href="#" id="skull" data-icon="custom">Settings</a></li>
+			<li><a href="filter.php" id="pin" data-icon="custom">Filter</a></li>
+			<li><a href="#" id="gear" data-icon="custom">Settings</a></li>
 		</ul>
 		</div>
 	</div>

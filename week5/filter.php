@@ -21,7 +21,7 @@
 
 <div data-role="page" id="filter">
 
-	<div data-role="header">
+	<div data-role="header" data-theme="b">
 		<a href="index.html" data-icon="delete">Save</a>
 		<h1>Forms</h1>
 		<a href="index.html" data-icon="check">Cancel</a>
@@ -31,6 +31,16 @@
 	<div data-role="content">	
 		<p></p>
 		<ul data-role="listview" data-inset="true" data-filter="true">
+		<?php
+			include("config.php");
+			$query = "SELECT * FROM presidentialcandidate";
+			$result = mysql_query($query);
+			while ($row = mysql_fetch_assoc($result)) {
+				echo "<li><a href='#'>" . $row["name"]."</a></li>";
+			} 
+		?>
+		</ul>
+		<!--<ul data-role="listview" data-inset="true" data-filter="true">
 			<li><a href="#">Barack Obama</a></li>
 			<li><a href="#">Mitt Romney</a></li>
 			<li><a href="#">Peta Lindsay</a></li>
@@ -38,7 +48,7 @@
 			<li><a href="#">Virgil Goode</a></li>
 			<li><a href="#">Jill Stein</a></li>
 			<li><a href="#">Gary Johnson</a></li>
-		</ul>
+		</ul> -->
 		
 		<ul data-role="listview" data-inset="true">
 			<li class="taphold">Tap and hold me</li>
@@ -104,8 +114,8 @@
 		<ul>
 			<li><a href="index.php" id="home" data-icon="custom">Home</a></li>
 			<li><a href="login.php" id="key" data-icon="custom">Login</a></li>
-			<li><a href="filter.php" id="beer" data-icon="custom" class="ui-btn-active">Filter</a></li>
-			<li><a href="#" id="skull" data-icon="custom">Settings</a></li>
+			<li><a href="filter.php" id="pin" data-icon="custom" class="ui-btn-active">Filter</a></li>
+			<li><a href="#" id="gear" data-icon="custom">Settings</a></li>
 		</ul>
 		</div>
 	</div>
@@ -129,6 +139,8 @@
 				event.stopImmediatePropagation() 
 				alert("You swiped left!");
 			});
+			
+						//$('div[data-role="footer"]').load('footer.html').trigger("create");
 		});
 </script>	
 </div><!-- /page -->

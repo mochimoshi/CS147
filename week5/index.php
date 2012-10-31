@@ -25,7 +25,7 @@
 <!-- Start of first page: #one -->
 <div data-role="page" id="one">
 
-	<div data-role="header">
+	<div data-role="header"  data-theme="b" i>
 		<h1>Multi-Page</h1>
 	</div><!-- /header -->
 
@@ -44,8 +44,8 @@
 			<ul>
 				<li><a href="index.php" id="home" data-icon="custom" class="ui-btn-active">Home</a></li>
 				<li><a href="login.php" id="key" data-icon="custom">Login</a></li>
-				<li><a href="filter.php" id="beer" data-icon="custom">Filter</a></li>
-				<li><a href="#" id="skull" data-icon="custom">Settings</a></li>
+				<li><a href="filter.php" id="pin" data-icon="custom">Filter</a></li>
+				<li><a href="#" id="gear" data-icon="custom">Settings</a></li>
 			</ul>
 		</div>
 	</div>
@@ -57,7 +57,7 @@
 <!-- Start of second page: #two -->
 <div data-role="page" id="two" data-add-back-btn="true">
 
-	<div data-role="header">
+	<div data-role="header"  data-theme="b" >
 		<h1>Two</h1>
 	</div><!-- /header -->
 

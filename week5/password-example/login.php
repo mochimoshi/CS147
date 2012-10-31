@@ -6,14 +6,15 @@
 $salt = "kr";
 
 // This saved_password would be saved in the database.
-$saved_password = crypt('mypassword', $salt); 
+ 
 echo "<p>The saved password is: ".$saved_password."</p>";
 
 $username = $_POST["username"];
 $entered_password = $_POST["password"];
 
+$saved_password = crypt($entered_password, $salt);
 echo "<p>The user sent a username of: ".$username ."</p>";
-echo "<p>The user sent a password of: ".$entered_password."</p>";
+echo "<p>The user sent a password of: ".$saved_password."</p>";
 
 // We check the user-entered password against the one
 // saved and retrieved above. If it matches, the user is logged in.
